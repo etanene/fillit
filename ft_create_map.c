@@ -38,8 +38,8 @@ char	**ft_create_map(char **map, int board)
 
 	if (map)
 		free(map);
-	if (!(res = (char**)malloc(sizeof(char*) * board + \
-				sizeof(char) * (board + 1) * (board + 1))))
+	if (!(res = (char**)malloc(sizeof(char*) * (board + 1) + \
+				sizeof(char) * board * (board + 1))))
 		return (0);
 	res[0] = (char*)(res + board + 1);
 	i = 1;
