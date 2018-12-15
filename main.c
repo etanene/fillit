@@ -12,9 +12,6 @@
 
 #include "fillit.h"
 
-#include <time.h>
-#include <stdio.h>
-
 void	ft_print_map(char **map)
 {
 	while (*map)
@@ -57,7 +54,6 @@ int		main(int ac, char **av)
 	t_res		res;
 	int			count_tetr;
 
-	clock_t		start = clock();
 	figures = NULL;
 	res.map = NULL;
 	if (ac != 2)
@@ -77,7 +73,5 @@ int		main(int ac, char **av)
 	}
 	if (ft_solve_map(figures, &res, count_tetr))
 		ft_print_map(res.map);
-	clock_t		end = clock();
-	printf("time: %f", (double)(end - start) / CLOCKS_PER_SEC);
 	return (0);
 }
