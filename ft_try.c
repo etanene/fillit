@@ -16,7 +16,7 @@ int		ft_check(t_figures *figures, t_res res, int x, int y)
 {
 	char	*temp_tetr;
 	char	*temp_map;
-	char	**tetr;	
+	char	**tetr;
 	char	**map;
 
 	map = res.map;
@@ -42,7 +42,7 @@ void	ft_set(t_figures *figures, t_res res, int x, int y)
 {
 	char	*temp_tetr;
 	char	*temp_map;
-	char	**tetr;	
+	char	**tetr;
 	char	**map;
 
 	map = res.map;
@@ -67,7 +67,7 @@ void	ft_reset(t_figures *figures, t_res res, int x, int y)
 {
 	char	*temp_tetr;
 	char	*temp_map;
-	char	**tetr;	
+	char	**tetr;
 	char	**map;
 
 	map = res.map;
