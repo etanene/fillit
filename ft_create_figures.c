@@ -27,6 +27,32 @@ void	ft_add_figure(t_figures **figures, t_figures *new)
 		*figures = new;
 }
 
+int		ft_check_valid(char **result, int i, int j)
+{
+	if (i * j == 6)
+	{
+		if (MAX(i, j) == i)
+		{
+			if (result[1][0] == '.' && (result[0][1] == '.' || \
+				result[1][1] == '.' || result[2][1] == '.'))
+				return (0);
+			if (result[1][1] == '.' && (result[0][0] == '.' || \
+				result[1][0] == '.' || result[2][0] == '.'))
+				return (0);
+		}
+		else
+		{
+			if (result[0][1] == '.' && (result[1][0] == '.' || \
+				result[1][1] == '.' || result[1][2] == '.'))
+				return (0);
+			if (result[1][1] == '.' && (result[0][0] == '.' || \
+				result[0][1] == '.' || result[0][2]))
+				return (0);
+		}
+	}
+	return (1);
+}
+
 void	ft_size_tetr(char **tetr, int *i, int *j)
 {
 	*i = 0;
@@ -52,12 +78,7 @@ int		ft_create_figures(t_figures **figures, char **result)
 	ft_size_tetr(result, &i, &j);
 	if (!(new = (t_figures*)malloc(sizeof(t_figures))) || i * j > 6)
 		return (0);
-	if (MAX(i, j) == i)
-	{
-		if (result[i / 2][0] == '.' && result[i / 2][1] == '.')
-			return (0);
-	}
-	else if (result[0][j / 2] == '.' && result[1][j / 2] == '.')
+	if (!ft_check_valid(result, i, j))
 		return (0);
 	new->tetrimino = result;
 	new->height = i;

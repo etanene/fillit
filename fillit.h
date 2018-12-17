@@ -58,6 +58,7 @@ int						ft_check_line(char *str, int count_lines, \
 void					ft_free_multiarr(char **tetr);
 int						ft_create_figures(t_figures **figures, char **result);
 void					ft_size_tetr(char **tetr, int *i, int *j);
+int						ft_check_valid(char **result, int i, int j);
 void					ft_add_figure(t_figures **figures, t_figures *new);
 char					**ft_cut_tetr(char **tetr);
 char					**ft_set_tetr(char **tetr, t_coord coord);

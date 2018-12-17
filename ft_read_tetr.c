@@ -66,9 +66,8 @@ int		ft_read_tetr(int fd, t_figures **figures)
 	*(tetr + 4) = NULL;
 	counts.lines = 0;
 	counts.sharp = 0;
-	while ((gnl = get_next_line(fd, &line)) >= 0)
+	while ((gnl = get_next_line(fd, &line)) >= 0 && ++counts.lines)
 	{
-		counts.lines++;
 		if (!gnl || !*line)
 		{
 			if (!ft_tetr_to_list(figures, tetr, &counts.sharp, counts.lines))
@@ -78,7 +77,8 @@ int		ft_read_tetr(int fd, t_figures **figures)
 		}
 		else if (!ft_check_line(line, counts.lines, &counts.sharp))
 			return (0);
-		tetr[counts.lines % 5 - 1] = line;
+		else
+			tetr[counts.lines % 5 - 1] = line;
 	}
 	return (counts.lines / 5);
 }
