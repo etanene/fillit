@@ -77,7 +77,7 @@ int		ft_read_tetr(int fd, t_figures **figures)
 		}
 		else if (!ft_check_line(line, counts.lines, &counts.sharp))
 			return (0);
-		else
+		else if (counts.lines % 5 != 0)
 			tetr[counts.lines % 5 - 1] = line;
 	}
 	return (counts.lines / 5);
